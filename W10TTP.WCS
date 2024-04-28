@@ -25,7 +25,7 @@ _SUB WIN1,W330H190,Win10屏幕键盘大小调整 V1.0,,,,, -disminb -ntab -scale
     ENVI @this.Font=:微软雅黑
     LABE -vcenter -left -trans LABE1,L12T3W280H30,拖动滑块调整屏幕键盘大小：,,,
     LABE -vcenter -left LABE3,L249T3W65H30,@狂犬主子,EXEC $https://www.xrgzs.top/?from=win10tabtip,0x000000##0xFF0000
-    SLID SLID1,L22T56W280H30,0:100,CALL SLIDE,0x40
+    SLID SLID1,L22T60W280H30,0:100,CALL SLIDE,0x40
     LABE -vcenter -center -trans LABE2,L91T41W142H24,,,,
     GROU GROU1,L12T33W300H59,大小：,
     RADI RADI1,L32T115W50H30,新版,,,1
