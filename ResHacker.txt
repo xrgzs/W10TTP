@@ -1,0 +1,52 @@
+[FILENAMES]
+Exe=PECMD.exe
+SaveAs=W10TTP.exe
+[COMMANDS]
+-delete EXEDATA,,
+-delete INDATA,2,2052
+-delete INDATA,4,2052
+-delete INDATA,5,2052
+-delete INDATA,6,2052
+-delete INDATA,7,2052
+-delete INDATA,8,2052
+-delete INDATA,9,2052
+-delete INDATA,10,2052
+-delete INDATA,20,2052
+-delete INDATA,21,2052
+-delete INDATA,22,2052
+-delete INDATA,24,2052
+-delete INDATA,25,2052
+-delete INDATA,26,2052
+-delete INDATA,27,2052
+-delete INDATA,30,2052
+-delete INDATA,31,2052
+-delete INDATA,32,2052
+-delete INDATA,33,2052
+-delete INDATA,34,2052
+-delete INDATA,35,2052
+-delete INDATA,36,2052
+-delete SCRIPT,102,2052
+-delete SCRIPT,103,2052
+-delete SCRIPT,201,2052
+-delete SCRIPT,202,2052
+-delete SCRIPT,203,2052
+-delete SCRIPTINIT,,
+-delete TAGDATA,,
+-delete MENU,,
+-delete DIALOG,302,2052
+-delete DIALOG,10011,2052
+-delete DIALOG,10012,2052
+-delete DIALOG,10013,2052
+-delete DIALOG,10014,2052
+-delete DIALOG,10019,2052
+-delete DIALOG,10023,2052
+-delete STRINGTABLE,337,2052
+-delete STRINGTABLE,626,2052
+-delete STRINGTABLE,627,2052
+-delete RCDATA,,
+-delete ICONGROUP,2,2052
+-delete ICONGROUP,3,2052
+-delete ICONGROUP,4,2052
+-addoverwrite W10TTP.WCZ,SCRIPT,101,2052
+-addoverwrite logo.ico,ICONGROUP,1,2052
+-addoverwrite Menifest.xml,24,1,2052

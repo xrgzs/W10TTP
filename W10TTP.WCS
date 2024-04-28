@@ -22,7 +22,7 @@ IFEX ! $%IsTabletPC%>0,
 }
 
 WIN1
-_SUB WIN1,W330H190,Win10屏幕键盘大小调整 V1.0,,%TabTip%,,, -disminb -ntab -scalef
+_SUB WIN1,W330H190,Win10屏幕键盘大小调整 V1.0,,,,, -disminb -ntab -scalef
     ENVI @this.Font=:微软雅黑
     LABE -vcenter -left -trans LABE1,L12T3W280H30,拖动滑块调整屏幕键盘大小：,,,
     LABE -vcenter -left LABE3,L249T3W65H30,@狂犬主子,EXEC $https://www.xrgzs.top/?from=win10tabtip,0x000000##0xFF0000

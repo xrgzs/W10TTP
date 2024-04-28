@@ -1,0 +1,20 @@
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Binary
+        shell: cmd
+        run: |
+          cmd /c build.bat
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: W10TTP_CI_Build
+          path: W10TTP.exe
