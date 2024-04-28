@@ -58,6 +58,11 @@ _SUB RESET
     KILL EXPLORER.EXE
     REGI HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Scaling\!
     REGI HKLM\SOFTWARE\Microsoft\TabletTip\1.7\\DisableNewKeyboardExperience=
+    REGI #HKCU\SOFTWARE\Microsoft\TabletTip\1.7\\EdgeTargetDockedState=0
+    REGI #HKCU\SOFTWARE\Microsoft\TabletTip\1.7\\TipbandDesiredVisibility=1
+    REGI #HKCU\SOFTWARE\Microsoft\TabletTip\1.7\\KeyboardLayoutPreference=1
+    REGI HKCU\SOFTWARE\Microsoft\TabletTip\1.7\\OptimizedKeyboardRelativeXPositionOnScreen=
+    REGI HKCU\SOFTWARE\Microsoft\TabletTip\1.7\\OptimizedKeyboardRelativeYPositionOnScreen=
     EXEC EXPLORER.EXE
     CALL FLUSH
 _END
@@ -67,7 +72,8 @@ _SUB APPLY
     KILL EXPLORER.EXE
     IFEX |%RADI1.Check%=1,CALC MonitorSize=20-20*(%SLID1%/100)#0
     IFEX |%RADI2.Check%=1,CALC MonitorSize=100-%SLID1%#0
-    REGI $HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Scaling\\MonitorSize=%MonitorSize%
+    IFEX |%MonitorSize%=100,CALC MonitorSize=0
+    IFEX ! |%MonitorSize%=0,REGI $HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Scaling\\MonitorSize=%MonitorSize%
     IFEX |%RADI1.Check%=1,REGI HKLM\SOFTWARE\Microsoft\TabletTip\1.7\\DisableNewKeyboardExperience=
     IFEX |%RADI2.Check%=1,REGI #HKLM\SOFTWARE\Microsoft\TabletTip\1.7\\DisableNewKeyboardExperience=1
     EXEC EXPLORER.EXE
