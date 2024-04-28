@@ -1,0 +1,76 @@
+﻿TEAM ENVI^ ENVIMODE=1| ENVI^ FORCELOCAL=1
+ENVI TabTip=C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe
+
+
+EXEC*N VER=!CMD.EXE /C VER
+MSTR * VER=<-1>VER
+MSTR * VER=-2,0,VER
+IFEX |%VER%<10,
+{
+    MESS-icon6 不支持的系统（NT %VER%）\n\n\n此程序只支持Win10 1709-22H2！ @错误
+    EXIT \
+}
+IFEX |%VER%>10.0.20400,
+{
+    MESS 太好了，\n\n您的系统（NT %VER%）无需使用本程序，\n\n可以直接在设置中直接调节，\n\n本程序并未对您的系统进行适配！ @提示
+    EXIT \
+}
+REGI .HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Tablet PC\\IsTabletPC,IsTabletPC
+IFEX ! $%IsTabletPC%>0,
+{
+    MESS-icon6 此程序仅支持在触控环境下配置使用，\n\n检测到当前设备非TabletPC触控设备，\n\n强行设置触摸键盘大小会触发恶性BUG，\n\n导致资源管理器基于堆栈的缓冲区溢出，\n\n从而导致系统界面反复闪退，\n\n严重情况下会导致无法开机进入桌面！ @警告
+}
+
+WIN1
+_SUB WIN1,W330H190,Win10屏幕键盘大小调整 V1.0,,%TabTip%,,, -disminb -ntab -scalef
+    ENVI @this.Font=:微软雅黑
+    LABE -vcenter -left -trans LABE1,L12T3W280H30,拖动滑块调整屏幕键盘大小：,,,
+    LABE -vcenter -left LABE3,L249T3W65H30,@狂犬主子,EXEC $https://www.xrgzs.top/?from=win10tabtip,0x000000##0xFF0000
+    SLID SLID1,L22T56W280H30,0:100,CALL SLIDE,0x40
+    LABE -vcenter -center -trans LABE2,L91T41W142H24,,,,
+    GROU GROU1,L12T33W300H59,大小：,
+    RADI RADI1,L32T115W50H30,新版,,,1
+    RADI RADI2,L100T115W50H30,旧版,,,1
+    GROU GROU2,L12T100W152H49,版本：,
+    ITEM -def ITEM1,L249T113W60H30,应用,CALL APPLY,
+    ITEM ITEM2,L182T113W60H30,重置,CALL RESET,
+    CALL FLUSH
+_END
+
+_SUB FLUSH
+    REGI .HKLM\SOFTWARE\Microsoft\TabletTip\1.7\\DisableNewKeyboardExperience,oldstatus
+    ENVI @RADI1.Check=0
+    ENVI @RADI2.Check=0
+    IFEX |%oldstatus%=0x1,ENVI @RADI2.Check=1!ENVI @RADI1.Check=1
+    REGI .HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Scaling\\MonitorSize,MonitorSize
+    IFEX |%RADI1.Check%=1,CALC MonitorSize1=((20-%MonitorSize%)/20)*100#0
+    IFEX |%RADI2.Check%=1,CALC MonitorSize1=100-%MonitorSize%
+    ENVI @SLID1.VAL=%MonitorSize1%
+_END
+
+_SUB SLIDE
+    ENVI @LABE2=%SLID1%%
+    IFEX #%SLID1%=100,ENVI @LABE2=系统默认
+    IFEX #%SLID1%=0,ENVI @LABE2=系统默认
+_END
+
+_SUB RESET
+    KILL TABTIP.EXE
+    KILL EXPLORER.EXE
+    REGI HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Scaling\!
+    REGI HKLM\SOFTWARE\Microsoft\TabletTip\1.7\\DisableNewKeyboardExperience=
+    EXEC EXPLORER.EXE
+    CALL FLUSH
+_END
+
+_SUB APPLY
+    KILL TABTIP.EXE
+    KILL EXPLORER.EXE
+    IFEX |%RADI1.Check%=1,CALC MonitorSize=20-20*(%SLID1%/100)#0
+    IFEX |%RADI2.Check%=1,CALC MonitorSize=100-%SLID1%#0
+    REGI $HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Scaling\\MonitorSize=%MonitorSize%
+    IFEX |%RADI1.Check%=1,REGI HKLM\SOFTWARE\Microsoft\TabletTip\1.7\\DisableNewKeyboardExperience=
+    IFEX |%RADI2.Check%=1,REGI #HKLM\SOFTWARE\Microsoft\TabletTip\1.7\\DisableNewKeyboardExperience=1
+    EXEC EXPLORER.EXE
+    CALL FLUSH
+_END
