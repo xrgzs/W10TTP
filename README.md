@@ -20,9 +20,9 @@
 
 ## 界面截图
 
-![image](https://github.com/xrgzs/W10TTP/assets/26499123/ed62e77e-edc5-4f9e-bbf9-b66665fe6e0c)
+![](https://github.com/xrgzs/W10TTP/assets/26499123/ed62e77e-edc5-4f9e-bbf9-b66665fe6e0c)
 
-![image](https://github.com/xrgzs/W10TTP/assets/26499123/07743d19-cd0d-423d-b294-d1ef1716a3bb)
+![](https://github.com/xrgzs/W10TTP/assets/26499123/07743d19-cd0d-423d-b294-d1ef1716a3bb)
 
 
 ## 主要特点
@@ -52,5 +52,8 @@
 - 本工具专门为配备触摸屏的 Windows 10 系统设计，不适用于无触摸功能的设备或其它版本系统。在非目标系统上运行可能导致工具自动终止。
 - 如果您的设备无 Tablet PC 触摸屏，本工具将强制退出。
 - 对于无 Tablet PC 触摸屏的设备，强行尝试调整可能会引发严重错误，包括但不限于“堆栈缓冲区溢出”，这将引起资源管理器崩溃、界面频繁闪退，极端情况下可能导致系统无法正常启动至桌面环境。
+  
+  ![](https://github.com/xrgzs/W10TTP/assets/26499123/16681816-1b57-447b-928d-93e4f9c93e7f)
+  
 - 在进行与注册表相关的操作之前，请务必进行数据备份，以防不当修改引发系统故障。
 - 对于非目标 Windows 版本的用户，部分工具功能可能不兼容或需要手动执行注册表编辑步骤，请谨慎操作。
