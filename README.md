@@ -1,10 +1,29 @@
+<div align="center">
+
+<img src="./logo.ico" alt="W10TTP" width="20%" />
+
+
 # Win10屏幕键盘大小调整工具
+[![GitHub Release](https://img.shields.io/github/v/release/xrgzs/W10TTP?label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC)](https://github.com/xrgzs/W10TTP/releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/xrgzs/W10TTP?label=%E4%B8%8A%E6%AC%A1%E6%8F%90%E4%BA%A4)](https://github.com/xrgzs/W10TTP/commits)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/xrgzs/W10TTP/build.yml?label=CI%E6%9E%84%E5%BB%BA)](https://github.com/xrgzs/W10TTP/actions)
+[![License](https://img.shields.io/github/license/xrgzs/W10TTP?label=%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF)](https://github.com/xrgzs/xrsys-hub/blob/main/LICENSE)
+[![加入QQ群](https://img.shields.io/badge/QQ%E7%BE%A4-%E5%8A%A0%E5%85%A5-red?logo=tencentqq)](https://qm.qq.com/q/YaGNTJsd0W) 
+
+</div>
 
 ## 功能概述
 
 本工具专为 Windows 10 操作系统 1709-22H2 版本设计，旨在帮助用户灵活调整触控键盘的尺寸，有效解决不同设备上可能遇到的键盘显示过大或过小的问题。
 
 此外，本工具还集成了一项实用功能，即允许用户将新版触控键盘切换至旧版模式，从而应对某些设备上的故障，如卡顿或无法正常使用的情况。
+
+## 界面截图
+
+![image](https://github.com/xrgzs/W10TTP/assets/26499123/ed62e77e-edc5-4f9e-bbf9-b66665fe6e0c)
+
+![image](https://github.com/xrgzs/W10TTP/assets/26499123/07743d19-cd0d-423d-b294-d1ef1716a3bb)
+
 
 ## 主要特点
 
