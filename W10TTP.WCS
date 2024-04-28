@@ -1,24 +1,23 @@
 ﻿TEAM ENVI^ ENVIMODE=1| ENVI^ FORCELOCAL=1
-ENVI TabTip=C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe
-
 
 EXEC*N VER=!CMD.EXE /C VER
 MSTR * VER=<-1>VER
 MSTR * VER=-2,0,VER
-IFEX |%VER%<10,
+IFEX $%VER%<10,
 {
     MESS-icon6 不支持的系统（NT %VER%）\n\n\n此程序只支持Win10 1709-22H2！ @错误
-    EXIT \
+    EXIT FILE
 }
 IFEX |%VER%>10.0.20400,
 {
-    MESS 太好了，\n\n您的系统（NT %VER%）无需使用本程序，\n\n可以直接在设置中直接调节，\n\n本程序并未对您的系统进行适配！ @提示
-    EXIT \
+    MESS-icon*102 太好了，\n\n您的系统（NT %VER%）无需使用本程序，\n\n可以直接在设置中直接调节，\n\n本程序并未对您的系统进行适配！ @提示
+    EXIT FILE
 }
 REGI .HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Tablet PC\\IsTabletPC,IsTabletPC
 IFEX ! $%IsTabletPC%>0,
 {
-    MESS-icon6 此程序仅支持在触控环境下配置使用，\n\n检测到当前设备非TabletPC触控设备，\n\n强行设置触摸键盘大小会触发恶性BUG，\n\n导致资源管理器基于堆栈的缓冲区溢出，\n\n从而导致系统界面反复闪退，\n\n严重情况下会导致无法开机进入桌面！ @警告
+    MESS-icon6 此程序仅支持在触控环境下配置使用，\n\n检测到当前设备非TabletPC触控设备，\n\n强行设置触摸键盘大小会触发恶性BUG，\n\n导致资源管理器基于堆栈的缓冲区溢出，\n\n从而使系统用户界面反复闪退，\n\n严重情况下会导致无法开机进入桌面！ @警告
+    EXIT FILE
 }
 
 WIN1
